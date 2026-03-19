@@ -3,7 +3,7 @@ import productoChocolate from '../assets/images/producto-chocolate.png'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 pb-0 overflow-hidden bg-gradient-to-br from-primary via-primary-dim to-secondary">
+    <section className="relative min-h-screen flex items-center pt-16 pb-24 md:pb-0 overflow-hidden bg-gradient-to-br from-primary via-primary-dim to-secondary">
       {/* Animated Flavor Scroll */}
       <div className="flavor-scroll top-1/4 text-7xl font-accent text-on-primary">
         Crunchy • Salty • Sweet • Healthy • Crunchy • Salty • Sweet • Healthy •

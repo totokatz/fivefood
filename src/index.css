@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00b4d8;
+  --color-primary-dim: #0096b4;
+  --color-primary-container: #90e0ef;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #003540;
+  --color-secondary: #0077b6;
+  --color-secondary-container: #caf0f8;
+  --color-tertiary: #03045e;
+  --color-background: #f8fdff;
+  --color-on-background: #001d25;
+  --color-surface: #f8fdff;
+  --color-on-surface: #001d25;
+  --color-surface-variant: #d9e4e8;
+  --color-on-surface-variant: #40484c;
+  --color-outline: #70787d;
+  --color-inverse-surface: #003540;
+  --color-inverse-on-surface: #e0f3f8;
+
+  --font-headline: "Josefin Sans", sans-serif;
+  --font-body: "Josefin Sans", sans-serif;
+  --font-label: "Josefin Sans", sans-serif;
+  --font-accent: "Satisfy", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+::selection {
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-filled {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

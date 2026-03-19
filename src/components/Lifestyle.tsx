@@ -1,20 +1,39 @@
-import { useRef, useCallback } from 'react'
+import { useRef, useState, useCallback, useEffect } from 'react'
 import lifestyleVideo from '../assets/video/lifestyle.mov'
 import lifestyleVideo2 from '../assets/video/lifestyle2.mov'
 
 const videos = [lifestyleVideo, lifestyleVideo2]
 
 export default function Lifestyle() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const currentIndex = useRef(0)
+  const videoARef = useRef<HTMLVideoElement>(null)
+  const videoBRef = useRef<HTMLVideoElement>(null)
+  const [activePlayer, setActivePlayer] = useState<'A' | 'B'>('A')
+  const nextIndex = useRef(1)
 
-  const handleEnded = useCallback(() => {
-    currentIndex.current = (currentIndex.current + 1) % videos.length
-    if (videoRef.current) {
-      videoRef.current.src = videos[currentIndex.current]
-      videoRef.current.play()
+  // Preload the second video into player B
+  useEffect(() => {
+    if (videoBRef.current) {
+      videoBRef.current.src = videos[1]
+      videoBRef.current.load()
     }
   }, [])
+
+  const handleEnded = useCallback(() => {
+    const nextPlayer = activePlayer === 'A' ? 'B' : 'A'
+    const nextRef = nextPlayer === 'A' ? videoARef : videoBRef
+    const preloadRef = activePlayer === 'A' ? videoARef : videoBRef
+
+    // Play the next video (already preloaded)
+    nextRef.current?.play()
+    setActivePlayer(nextPlayer)
+
+    // Advance index and preload the following video into the now-hidden player
+    nextIndex.current = (nextIndex.current + 1) % videos.length
+    if (preloadRef.current) {
+      preloadRef.current.src = videos[nextIndex.current]
+      preloadRef.current.load()
+    }
+  }, [activePlayer])
 
   return (
     <section id="lifestyle" className="py-32 bg-secondary-container/30 overflow-hidden">
@@ -31,19 +50,30 @@ export default function Lifestyle() {
           <div className="relative group md:col-span-2">
             <div className="absolute -inset-4 bg-primary/20 rounded-2xl blur-2xl group-hover:bg-primary/30 transition-all" />
             <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-video">
+              {/* Player A */}
               <video
-                ref={videoRef}
+                ref={videoARef}
                 autoPlay
                 muted
                 playsInline
                 onEnded={handleEnded}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                style={{ opacity: activePlayer === 'A' ? 1 : 0 }}
               >
-                <source src={lifestyleVideo} type="video/quicktime" />
-                <source src={lifestyleVideo} type="video/mp4" />
+                <source src={videos[0]} type="video/quicktime" />
+                <source src={videos[0]} type="video/mp4" />
               </video>
+              {/* Player B */}
+              <video
+                ref={videoBRef}
+                muted
+                playsInline
+                onEnded={handleEnded}
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                style={{ opacity: activePlayer === 'B' ? 1 : 0 }}
+              />
               {/* Overlay */}
-              <div className="video-overlay absolute inset-0 flex flex-col justify-end p-8 md:p-12">
+              <div className="video-overlay absolute inset-0 flex flex-col justify-end p-8 md:p-12 z-10">
                 <div className="max-w-2xl">
                   <p className="font-accent text-2xl md:text-3xl text-primary-container mb-3">
                     Stay Crunchy, Stay Healthy

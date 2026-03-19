@@ -3,15 +3,15 @@ import productoChocolate from '../assets/images/producto-chocolate.png'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-primary via-primary-dim to-secondary">
+    <section className="relative min-h-screen flex items-center pt-16 pb-0 overflow-hidden bg-gradient-to-br from-primary via-primary-dim to-secondary">
       {/* Animated Flavor Scroll */}
       <div className="flavor-scroll top-1/4 text-7xl font-accent text-on-primary">
         Crunchy • Salty • Sweet • Healthy • Crunchy • Salty • Sweet • Healthy •
         Crunchy • Salty • Sweet • Healthy • Crunchy • Salty • Sweet • Healthy
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
-        <div className="space-y-8">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 md:gap-12 items-center relative z-10">
+        <div className="space-y-6 md:space-y-8">
           <h1 className="text-5xl md:text-7xl font-headline font-bold text-on-primary leading-tight tracking-tighter">
             Una nueva forma de{' '}
             <span className="font-accent text-primary-container underline underline-offset-8">
@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative h-[500px] md:h-[700px] flex justify-center items-center">
+        <div className="relative h-[400px] md:h-[700px] flex justify-center items-center -mb-16 md:mb-0">
           {/* Queso */}
           <div className="absolute -left-10 md:left-0 top-1/2 -translate-y-1/2 -rotate-[15deg] hover:rotate-0 transition-transform duration-500 z-20">
             <img
@@ -58,7 +58,7 @@ export default function Hero() {
             />
           </div>
           {/* Badge */}
-          <div className="absolute top-20 right-10 glass-badge px-6 py-3 rounded-full flex items-center gap-3">
+          <div className="absolute top-5 md:top-20 right-10 glass-badge px-6 py-3 rounded-full flex items-center gap-3">
             <span className="material-symbols-filled text-primary">star</span>
             <span className="font-headline font-bold text-on-background">100% Vegano!</span>
           </div>

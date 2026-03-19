@@ -44,7 +44,7 @@ export default function ProductSpotlight() {
               </li>
             </ul>
             <a
-              href="https://fivefood.com.ar/productos"
+              href="https://www.fivefood.com.ar/productos/combo-team-chocolate-x12-unidades"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-primary text-on-primary px-12 py-4 rounded-full font-bold text-lg hover:bg-primary-dim transition-all shadow-xl shadow-primary/30"
@@ -83,7 +83,7 @@ export default function ProductSpotlight() {
               </li>
             </ul>
             <a
-              href="https://fivefood.com.ar/productos"
+              href="https://www.fivefood.com.ar/productos/combo-team-queso-x12-unidades"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-primary text-on-primary px-12 py-4 rounded-full font-bold text-lg hover:bg-primary-dim transition-all shadow-xl shadow-primary/30"

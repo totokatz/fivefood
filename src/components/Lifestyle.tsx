@@ -1,36 +1,59 @@
-import { useRef, useState, useCallback, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import lifestyleVideo from '../assets/video/lifestyle.mov'
 import lifestyleVideo2 from '../assets/video/lifestyle2.mov'
+import lifestyleVideo3 from '../assets/video/lifestyle3.mp4'
 
-const videos = [lifestyleVideo, lifestyleVideo2]
+const srcs = [lifestyleVideo, lifestyleVideo2, lifestyleVideo3]
 
 export default function Lifestyle() {
   const videoARef = useRef<HTMLVideoElement>(null)
   const videoBRef = useRef<HTMLVideoElement>(null)
-  const [activePlayer, setActivePlayer] = useState<'A' | 'B'>('A')
-  const nextIndex = useRef(1)
+  const active = useRef<'A' | 'B'>('A')
+  const idx = useRef(0)
+  const [visible, setVisible] = useState<'A' | 'B'>('A')
 
+  // Preload B with second video
   useEffect(() => {
-    if (videoBRef.current) {
-      videoBRef.current.src = videos[1]
-      videoBRef.current.load()
+    const b = videoBRef.current
+    if (b) {
+      b.src = srcs[1]
+      b.load()
     }
   }, [])
 
-  const handleEnded = useCallback(() => {
-    const nextPlayer = activePlayer === 'A' ? 'B' : 'A'
-    const nextRef = nextPlayer === 'A' ? videoARef : videoBRef
-    const preloadRef = activePlayer === 'A' ? videoARef : videoBRef
+  const swap = () => {
+    const nextIdx = (idx.current + 1) % srcs.length
+    const isA = active.current === 'A'
+    const nextPlayer = isA ? 'B' : 'A'
+    const nextEl = isA ? videoBRef.current : videoARef.current
+    const prevEl = isA ? videoARef.current : videoBRef.current
 
-    nextRef.current?.play()
-    setActivePlayer(nextPlayer)
+    if (!nextEl || !prevEl) return
 
-    nextIndex.current = (nextIndex.current + 1) % videos.length
-    if (preloadRef.current) {
-      preloadRef.current.src = videos[nextIndex.current]
-      preloadRef.current.load()
+    const go = () => {
+      nextEl.play().then(() => {
+        active.current = nextPlayer
+        setVisible(nextPlayer)
+        idx.current = nextIdx
+
+        // Preload the FOLLOWING video into the now-hidden player
+        const preloadIdx = (nextIdx + 1) % srcs.length
+        prevEl.src = srcs[preloadIdx]
+        prevEl.load()
+      }).catch(() => {
+        // Autoplay blocked — swap anyway
+        active.current = nextPlayer
+        setVisible(nextPlayer)
+        idx.current = nextIdx
+      })
     }
-  }, [activePlayer])
+
+    if (nextEl.readyState >= 3) {
+      go()
+    } else {
+      nextEl.addEventListener('canplay', go, { once: true })
+    }
+  }
 
   return (
     <section id="lifestyle" className="py-16 md:py-32 bg-secondary-container/30 overflow-hidden">
@@ -43,33 +66,29 @@ export default function Lifestyle() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Video Card */}
           <div className="relative group md:col-span-2">
             <div className="absolute -inset-2 md:-inset-4 bg-primary/20 rounded-2xl blur-2xl group-hover:bg-primary/30 transition-all" />
-            <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-2xl aspect-[3/4] sm:aspect-[4/3] md:aspect-video">
-              {/* Player A */}
+            <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-2xl aspect-[3/4] sm:aspect-[4/3] md:aspect-video bg-black">
               <video
                 ref={videoARef}
                 autoPlay
                 muted
                 playsInline
-                onEnded={handleEnded}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                style={{ opacity: activePlayer === 'A' ? 1 : 0 }}
+                onEnded={swap}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ opacity: visible === 'A' ? 1 : 0 }}
               >
-                <source src={videos[0]} type="video/quicktime" />
-                <source src={videos[0]} type="video/mp4" />
+                <source src={srcs[0]} type="video/quicktime" />
+                <source src={srcs[0]} type="video/mp4" />
               </video>
-              {/* Player B */}
               <video
                 ref={videoBRef}
                 muted
                 playsInline
-                onEnded={handleEnded}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                style={{ opacity: activePlayer === 'B' ? 1 : 0 }}
+                onEnded={swap}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ opacity: visible === 'B' ? 1 : 0 }}
               />
-              {/* Overlay */}
               <div className="video-overlay absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-12 z-10">
                 <div className="max-w-2xl">
                   <p className="font-accent text-lg sm:text-xl md:text-3xl text-primary-container mb-1 md:mb-3">

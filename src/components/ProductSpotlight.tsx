@@ -66,20 +66,20 @@ export default function ProductSpotlight() {
             <p className="text-base md:text-xl text-on-surface-variant leading-relaxed font-light">
               Si sos del team que no negocia el sabor, este es para vos. Bocaditos saludables sabor
               queso: crujientes, proteicos y con ese gustito que no podés parar de comer. Hechos con
-              proteína de arveja y harina de maíz pisingallo, sin TACC y 100% veganos.
+              proteína de arveja y harina de maíz, sin TACC y 100% veganos.
             </p>
             <ul className="space-y-3 md:space-y-4">
               <li className="flex items-center gap-3 md:gap-4 text-on-surface text-base md:text-lg">
                 <span className="material-symbols-filled text-primary">done</span>
-                Harina de Maíz Pisingallo
+                Fuente de Proteína y Alto en Fibra
               </li>
               <li className="flex items-center gap-3 md:gap-4 text-on-surface text-base md:text-lg">
                 <span className="material-symbols-filled text-primary">done</span>
-                Alto en Fibra
+                Apto Veganos y Celíacos
               </li>
               <li className="flex items-center gap-3 md:gap-4 text-on-surface text-base md:text-lg">
                 <span className="material-symbols-filled text-primary">done</span>
-                Apto Vegano & Celíaco
+                Sin Conservantes
               </li>
             </ul>
             <a

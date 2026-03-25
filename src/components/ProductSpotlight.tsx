@@ -7,11 +7,11 @@ export default function ProductSpotlight() {
       {/* Chocolate Spotlight */}
       <section id="shop" className="relative py-16 md:py-32 bg-inverse-surface overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-          <div className="order-2 md:order-1 relative">
+          <div className="order-2 md:order-1 relative reveal-left">
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full" />
             <img
               alt="Five Food Sabor Chocolate"
-              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto -rotate-6 hover:rotate-0 transition-all duration-700"
+              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto -rotate-6 hover:rotate-0 transition-all duration-700 tap-active"
               src={productoChocolate}
             />
             <div className="absolute top-5 md:top-10 left-0 glass-badge rounded-full px-3 md:px-4 py-1.5 md:py-2 flex items-center gap-2 border border-white/10">
@@ -19,7 +19,7 @@ export default function ProductSpotlight() {
               <span className="text-white font-bold text-xs md:text-sm">Energía Real</span>
             </div>
           </div>
-          <div className="order-1 md:order-2 space-y-5 md:space-y-8">
+          <div className="order-1 md:order-2 space-y-5 md:space-y-8 reveal-right">
             <span className="font-accent text-2xl md:text-3xl text-primary-container">Intenso & Crocante</span>
             <h2 className="text-3xl sm:text-4xl md:text-7xl font-headline font-bold text-on-primary leading-tight">
               Sabor Chocolate
@@ -47,7 +47,7 @@ export default function ProductSpotlight() {
               href="https://www.fivefood.com.ar/productos/combo-team-chocolate-x12-unidades"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary text-on-primary px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-primary-dim transition-all shadow-xl shadow-primary/30"
+              className="inline-block bg-primary text-on-primary px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-primary-dim transition-all shadow-xl shadow-primary/30 tap-active"
             >
               Comprar Ahora
             </a>
@@ -58,7 +58,7 @@ export default function ProductSpotlight() {
       {/* Queso Spotlight */}
       <section className="relative py-16 md:py-32 bg-primary/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-          <div className="space-y-5 md:space-y-8">
+          <div className="space-y-5 md:space-y-8 reveal-left">
             <span className="font-accent text-2xl md:text-3xl text-primary">Bold & Sabroso</span>
             <h2 className="text-3xl sm:text-4xl md:text-7xl font-headline font-bold text-on-background leading-tight">
               Sabor Queso
@@ -86,16 +86,16 @@ export default function ProductSpotlight() {
               href="https://www.fivefood.com.ar/productos/combo-team-queso-x12-unidades"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary text-on-primary px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-primary-dim transition-all shadow-xl shadow-primary/30"
+              className="inline-block bg-primary text-on-primary px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-primary-dim transition-all shadow-xl shadow-primary/30 tap-active"
             >
               Comprar Ahora
             </a>
           </div>
-          <div className="relative">
+          <div className="relative reveal-right">
             <div className="absolute inset-0 bg-primary/10 blur-[100px] rounded-full" />
             <img
               alt="Five Food Sabor Queso"
-              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto rotate-6 hover:rotate-0 transition-all duration-700"
+              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto rotate-6 hover:rotate-0 transition-all duration-700 tap-active"
               src={productoQueso}
             />
             <div className="absolute bottom-5 md:bottom-10 right-0 glass-badge rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 border border-primary/20">

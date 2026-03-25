@@ -59,14 +59,14 @@ export default function Lifestyle() {
     <section id="lifestyle" className="py-16 md:py-32 bg-secondary-container/30 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
-          <h2 className="font-accent text-2xl md:text-4xl text-primary">Viví tu Vitalidad</h2>
-          <h3 className="text-3xl sm:text-4xl md:text-7xl font-headline font-bold text-on-background tracking-tighter">
+          <h2 className="font-accent text-2xl md:text-4xl text-primary reveal">Viví tu Vitalidad</h2>
+          <h3 className="text-3xl sm:text-4xl md:text-7xl font-headline font-bold text-on-background tracking-tighter reveal">
             Energía Sin Límites
           </h3>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative group md:col-span-2">
+          <div className="relative group md:col-span-2 reveal-scale">
             <div className="absolute -inset-2 md:-inset-4 bg-primary/20 rounded-2xl blur-2xl group-hover:bg-primary/30 transition-all" />
             <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-2xl aspect-[3/4] sm:aspect-[4/3] md:aspect-video bg-black">
               <video
@@ -106,7 +106,7 @@ export default function Lifestyle() {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-20 text-center">
+        <div className="mt-12 md:mt-20 text-center reveal">
           <a
             href="https://fivefood.com.ar/productos"
             target="_blank"

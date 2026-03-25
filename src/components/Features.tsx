@@ -2,7 +2,7 @@ const features = [
   { icon: 'fitness_center', value: '8g', label: 'Proteína' },
   { icon: 'grass', value: '6.6g', label: 'Fibra' },
   { icon: 'check_circle', value: 'Sin T.A.C.C.', label: 'Gluten Free' },
-  { icon: 'verified', value: '0', label: 'Grasas Trans' },
+  { icon: 'heart_check', value: '0', label: 'Grasas Trans' },
 ]
 
 export default function Features() {

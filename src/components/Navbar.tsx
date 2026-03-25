@@ -1,14 +1,11 @@
-import simbolo from '../assets/logos/simbolo.svg'
+import logoBlue from '../assets/logos/logo-blue.svg'
 
 export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-primary/10">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
-        <div className="flex items-center gap-2 md:gap-3">
-          <img src={simbolo} alt="Five Food" className="w-7 h-7 md:w-8 md:h-8" />
-          <span className="text-xl md:text-2xl font-bold text-on-background tracking-tighter font-headline">
-            Five Food
-          </span>
+        <div className="flex items-center">
+          <img src={logoBlue} alt="Five Food" className="h-6 md:h-8 w-auto" />
         </div>
         <div className="hidden md:flex items-center gap-8 font-headline text-base tracking-tight">
           <a className="text-primary font-semibold border-b-2 border-primary pb-1" href="#shop">

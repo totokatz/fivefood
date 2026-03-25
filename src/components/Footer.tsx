@@ -1,12 +1,11 @@
-import simbolo from '../assets/logos/simbolo.svg'
+import logoBlue from '../assets/logos/logo-blue.svg'
 
 export default function Footer() {
   return (
     <footer className="w-full py-8 md:py-12 px-4 md:px-6 border-t border-primary/10 bg-white">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 max-w-7xl mx-auto">
-        <div className="flex items-center gap-2 md:gap-3">
-          <img src={simbolo} alt="Five Food" className="w-5 h-5 md:w-6 md:h-6" />
-          <span className="text-xl md:text-2xl font-black text-on-background font-headline">Five Food</span>
+        <div className="flex items-center">
+          <img src={logoBlue} alt="Five Food" className="h-5 md:h-6 w-auto" />
         </div>
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 font-headline text-sm">
           <a

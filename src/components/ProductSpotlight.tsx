@@ -32,7 +32,7 @@ export default function ProductSpotlight() {
             <ul className="space-y-3 md:space-y-4">
               <li className="flex items-center gap-3 md:gap-4 text-on-primary text-base md:text-lg">
                 <span className="material-symbols-filled text-primary">done</span>
-                Proteína de Arveja
+                Fuente de Proteína y Alto en Fibra
               </li>
               <li className="flex items-center gap-3 md:gap-4 text-on-primary text-base md:text-lg">
                 <span className="material-symbols-filled text-primary">done</span>

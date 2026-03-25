@@ -34,7 +34,7 @@ export default function Footer() {
           </a>
         </div>
         <div className="text-on-surface-variant font-headline text-xs md:text-sm">
-          © 2025 Five Food. The Playful Epicurean.
+          © 2025 Five Food.
         </div>
       </div>
     </footer>

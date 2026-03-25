@@ -26,7 +26,7 @@ export default function Footer() {
           </a>
           <a
             className="text-on-surface-variant hover:underline hover:text-primary transition-all"
-            href="https://wa.me/5493416488488"
+            href="https://wa.me/5493412703863"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -8,6 +8,7 @@ import ProductSpotlight from './components/ProductSpotlight'
 import BrandStory from './components/BrandStory'
 import Lifestyle from './components/Lifestyle'
 import Footer from './components/Footer'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -48,6 +49,7 @@ function App() {
         <Lifestyle />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }

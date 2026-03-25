@@ -60,7 +60,7 @@ export default function Hero() {
           {/* Badge */}
           <div className="absolute top-5 md:top-20 right-10 glass-badge px-6 py-3 rounded-full flex items-center gap-3">
             <span className="material-symbols-filled text-primary">star</span>
-            <span className="font-headline font-bold text-on-background">100% Vegano!</span>
+            <span className="font-headline font-bold text-secondary">100% Vegano!</span>
           </div>
         </div>
       </div>

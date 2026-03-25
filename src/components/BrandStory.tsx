@@ -8,9 +8,9 @@ export default function BrandStory() {
         </h3>
         <p className="text-base md:text-xl text-on-surface-variant leading-relaxed font-light reveal">
           Five Food nace de la necesidad de brindar una alternativa 100% saludable a los snacks.
-          Somos una marca que nació para cambiar la forma en la que nos alimentamos. Creada por Tomás
-          y Benja como un proyecto universitario, hoy ofrecemos snacks realmente saludables y
-          deliciosos, sin ingredientes ultraprocesados ni promesas vacías.
+          Somos una marca que nació para cambiar la forma en la que nos alimentamos. Creada por
+          nosotros (Tomi y Benja) como un proyecto universitario, hoy ofrecemos snacks realmente
+          saludables y deliciosos.
         </p>
         <p className="text-base md:text-xl text-on-surface-variant leading-relaxed font-light reveal">
           Five Food es más que una marca, es nuestro compromiso con un estilo de vida más

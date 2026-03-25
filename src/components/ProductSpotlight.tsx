@@ -11,7 +11,7 @@ export default function ProductSpotlight() {
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full" />
             <img
               alt="Five Food Sabor Chocolate"
-              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto -rotate-6 hover:rotate-0 transition-all duration-500 tap-active"
+              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto -rotate-6 hover:rotate-0 transition-all duration-500"
               src={productoChocolate}
             />
             <div className="absolute top-5 md:top-10 left-0 glass-badge rounded-full px-3 md:px-4 py-1.5 md:py-2 flex items-center gap-2 border border-white/10">
@@ -95,7 +95,7 @@ export default function ProductSpotlight() {
             <div className="absolute inset-0 bg-primary/10 blur-[100px] rounded-full" />
             <img
               alt="Five Food Sabor Queso"
-              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto rotate-6 hover:rotate-0 transition-all duration-500 tap-active"
+              className="relative z-10 w-full max-w-xs md:max-w-md mx-auto rotate-6 hover:rotate-0 transition-all duration-500"
               src={productoQueso}
             />
             <div className="absolute bottom-5 md:bottom-10 right-0 glass-badge rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 border border-primary/20">

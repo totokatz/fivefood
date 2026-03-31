@@ -10,7 +10,7 @@ import type { Category } from '../components/stories/templates/types'
 export default function Stories() {
   const [activeCategory, setActiveCategory] = useState<Category>('promociones')
   const [activeTemplateId, setActiveTemplateId] = useState<string>('')
-  const [templateData, setTemplateData] = useState<Record<string, string | number>>({})
+  const [templateData, setTemplateData] = useState<Record<string, string | number | boolean>>({})
   const [downloading, setDownloading] = useState(false)
   const previewRef = useRef<HTMLDivElement>(null)
 
@@ -29,7 +29,7 @@ export default function Stories() {
     const first = templates.find((t) => t.category === cat)
     if (first) {
       setActiveTemplateId(first.id)
-      const defaults: Record<string, string | number> = {}
+      const defaults: Record<string, string | number | boolean> = {}
       first.fields.forEach((f) => (defaults[f.key] = f.default))
       setTemplateData(defaults)
     }
@@ -39,13 +39,13 @@ export default function Stories() {
     setActiveTemplateId(id)
     const tmpl = templates.find((t) => t.id === id)
     if (tmpl) {
-      const defaults: Record<string, string | number> = {}
+      const defaults: Record<string, string | number | boolean> = {}
       tmpl.fields.forEach((f) => (defaults[f.key] = f.default))
       setTemplateData(defaults)
     }
   }, [])
 
-  const handleFieldChange = useCallback((key: string, value: string | number) => {
+  const handleFieldChange = useCallback((key: string, value: string | number | boolean) => {
     setTemplateData((prev) => ({ ...prev, [key]: value }))
   }, [])
 
@@ -56,7 +56,8 @@ export default function Stories() {
       const dataUrl = await toPng(previewRef.current, {
         width: 1080,
         height: 1920,
-        pixelRatio: 1,
+        pixelRatio: 2,
+        cacheBust: true,
       })
       const link = document.createElement('a')
       link.download = `fivefoods-story-${activeTemplate.id}-${Date.now()}.png`
@@ -74,7 +75,7 @@ export default function Stories() {
     const first = templates.find((t) => t.category === 'promociones')
     if (first) {
       setActiveTemplateId(first.id)
-      const defaults: Record<string, string | number> = {}
+      const defaults: Record<string, string | number | boolean> = {}
       first.fields.forEach((f) => (defaults[f.key] = f.default))
       setTemplateData(defaults)
     }

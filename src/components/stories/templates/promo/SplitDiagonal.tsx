@@ -1,7 +1,8 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
+import simbolo from '../../../../assets/logos/simbolo.svg'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD, LOCK_LAYOUT_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -11,6 +12,7 @@ export function SplitDiagonalPreview({ data }: TemplateProps) {
   const label = data.label || 'DESCUENTO'
   const code = data.code || 'Usá el código: SNACK10'
   const productSize = Number(data.productSize) || 500
+  const lockLayout = !!data.lockLayout
 
   return (
     <div className="relative flex h-full w-full flex-col font-headline" style={{ background: '#03045e' }}>
@@ -22,15 +24,16 @@ export function SplitDiagonalPreview({ data }: TemplateProps) {
           clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)',
         }}
       >
-        <p className="text-[28px] font-light tracking-[12px] text-white/50 uppercase">
-          FIVE FOODS
-        </p>
-        <img
-          src={products[product as keyof typeof products]}
-          alt={product}
-          className="mt-8 w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
-          style={{ height: `${productSize}px`, transform: 'rotate(3deg)' }}
-        />
+        <img src={simbolo} alt="FiveFoods" className="w-[80px] opacity-50" />
+        {/* Product — fixed container */}
+        <div className="flex items-center justify-center" style={lockLayout ? { minHeight: '480px' } : undefined}>
+          <img
+            src={products[product as keyof typeof products]}
+            alt={product}
+            className="w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
+            style={{ height: `${productSize}px`, transform: 'rotate(3deg)' }}
+          />
+        </div>
       </div>
       <div className="flex flex-1 flex-col items-center justify-center px-[80px] text-center">
         <p className="text-[160px] font-black leading-none text-primary">
@@ -58,6 +61,7 @@ export const SplitDiagonalConfig: TemplateConfig = {
     { key: 'code', label: 'Código', type: 'text', default: 'Usá el código: SNACK10' },
     PRODUCT_FIELD,
     PRODUCT_SIZE_FIELD,
+    LOCK_LAYOUT_FIELD,
   ],
   component: SplitDiagonalPreview,
 }

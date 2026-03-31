@@ -2,8 +2,8 @@ import type { TemplateField } from './templates/types'
 
 interface Props {
   fields: TemplateField[]
-  data: Record<string, string | number>
-  onChange: (key: string, value: string | number) => void
+  data: Record<string, string | number | boolean>
+  onChange: (key: string, value: string | number | boolean) => void
   onDownload: () => void
   downloading: boolean
 }
@@ -16,9 +16,18 @@ export default function StoryControls({ fields, data, onChange, onDownload, down
           <label className="font-label text-[10px] font-semibold uppercase tracking-wider text-inverse-on-surface/60">
             {field.label}
           </label>
-          {field.type === 'select' ? (
+          {field.type === 'checkbox' ? (
+            <label className="flex cursor-pointer items-center gap-2">
+              <input
+                type="checkbox"
+                checked={!!data[field.key]}
+                onChange={(e) => onChange(field.key, e.target.checked)}
+                className="h-4 w-4 accent-primary"
+              />
+            </label>
+          ) : field.type === 'select' ? (
             <select
-              value={data[field.key] ?? field.default}
+              value={(data[field.key] ?? field.default) as string}
               onChange={(e) => onChange(field.key, e.target.value)}
               className="rounded-lg bg-inverse-surface border border-inverse-on-surface/20 px-3 py-1.5 font-body text-sm text-inverse-on-surface outline-none focus:border-primary"
             >
@@ -28,14 +37,24 @@ export default function StoryControls({ fields, data, onChange, onDownload, down
                 </option>
               ))}
             </select>
-          ) : (
+          ) : field.type === 'number' ? (
             <input
-              type={field.type}
-              value={data[field.key] ?? field.default}
-              onChange={(e) =>
-                onChange(field.key, field.type === 'number' ? Number(e.target.value) : e.target.value)
-              }
-              className="w-36 rounded-lg bg-inverse-surface border border-inverse-on-surface/20 px-3 py-1.5 font-body text-sm text-inverse-on-surface outline-none focus:border-primary"
+              type="number"
+              value={(data[field.key] ?? field.default) as number}
+              onChange={(e) => onChange(field.key, Number(e.target.value))}
+              className="w-24 rounded-lg bg-inverse-surface border border-inverse-on-surface/20 px-3 py-1.5 font-body text-sm text-inverse-on-surface outline-none focus:border-primary"
+            />
+          ) : (
+            <textarea
+              value={(data[field.key] ?? field.default) as string}
+              onChange={(e) => onChange(field.key, e.target.value)}
+              rows={1}
+              className="w-40 resize-none rounded-lg bg-inverse-surface border border-inverse-on-surface/20 px-3 py-1.5 font-body text-sm text-inverse-on-surface outline-none focus:border-primary"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault()
+                }
+              }}
             />
           )}
         </div>

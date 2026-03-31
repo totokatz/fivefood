@@ -6,11 +6,11 @@ interface Props {
 
 const StoryPreview = forwardRef<HTMLDivElement, Props>(({ children }, ref) => {
   return (
-    <div className="flex flex-1 items-center justify-center overflow-hidden p-4">
-      <div className="relative" style={{ width: '360px', height: '640px' }}>
+    <div className="flex flex-1 items-center justify-center overflow-auto p-4">
+      <div className="flex-shrink-0 relative" style={{ width: '360px', height: '640px' }}>
         <div
           ref={ref}
-          className="absolute origin-top-left"
+          className="absolute origin-top-left overflow-hidden"
           style={{
             width: '1080px',
             height: '1920px',

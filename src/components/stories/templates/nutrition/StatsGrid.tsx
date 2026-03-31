@@ -1,7 +1,8 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
+import logoWhite from '../../../../assets/logos/logo.svg'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD, LOCK_LAYOUT_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -17,6 +18,7 @@ export function StatsGridPreview({ data }: TemplateProps) {
   const stat4Label = data.stat4Label || 'Sin TACC'
   const tagline = data.tagline || 'Energía real, sin vueltas'
   const productSize = Number(data.productSize) || 500
+  const lockLayout = !!data.lockLayout
 
   const stats = [
     { val: stat1Val, label: stat1Label },
@@ -27,35 +29,46 @@ export function StatsGridPreview({ data }: TemplateProps) {
 
   return (
     <div
-      className="flex h-full w-full flex-col items-center justify-between px-[80px] py-[120px] font-headline"
-      style={{ background: 'linear-gradient(180deg, #003540 0%, #03045e 100%)' }}
+      className="relative flex h-full w-full flex-col items-center overflow-hidden font-headline"
+      style={{ background: 'linear-gradient(160deg, #003540 0%, #03045e 60%, #0077b6 100%)' }}
     >
-      <p className="text-[28px] font-light tracking-[12px] text-primary/50 uppercase">
-        FIVE FOODS
-      </p>
-      <div className="grid w-full grid-cols-2 gap-[32px]">
+      {/* Subtle glow */}
+      <div
+        className="absolute rounded-full"
+        style={{ width: '800px', height: '800px', background: 'radial-gradient(circle, rgba(0,180,216,0.12) 0%, transparent 70%)', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+      />
+
+      {/* Logo */}
+      <img src={logoWhite} alt="FiveFoods" className="z-10 mt-[80px] w-[240px] opacity-50" />
+
+      {/* Product — centered, fixed container */}
+      <div className="z-10 flex items-center justify-center" style={lockLayout ? { minHeight: '500px' } : undefined}>
+        <img
+          src={products[product as keyof typeof products]}
+          alt={product}
+          className="w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,180,216,0.25)]"
+          style={{ height: `${productSize}px`, transform: 'rotate(-6deg)' }}
+        />
+      </div>
+
+      {/* Stats — horizontal strip with glass effect */}
+      <div className="z-10 flex w-full justify-center gap-[16px] px-[40px]">
         {stats.map((s, i) => (
           <div
             key={i}
-            className="rounded-[32px] border border-primary/20 px-[40px] py-[48px] text-center"
-            style={{ background: 'rgba(0,180,216,0.08)' }}
+            className="flex flex-1 flex-col items-center rounded-[24px] py-[36px]"
+            style={{ background: 'rgba(0,180,216,0.08)', border: '1px solid rgba(0,180,216,0.15)' }}
           >
-            <p className="text-[96px] font-black leading-none text-primary">{s.val}</p>
-            <p className="mt-3 text-[28px] font-semibold tracking-[6px] text-white/40 uppercase">
+            <p className="text-[64px] font-black leading-none text-primary">{s.val}</p>
+            <p className="mt-[12px] text-[20px] font-semibold tracking-[3px] text-white/40 uppercase">
               {s.label}
             </p>
           </div>
         ))}
       </div>
-      <div className="flex flex-col items-center gap-6">
-        <img
-          src={products[product as keyof typeof products]}
-          alt={product}
-          className="w-auto object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.3)]"
-          style={{ height: `${productSize}px` }}
-        />
-        <p className="text-[28px] text-white/35">{tagline}</p>
-      </div>
+
+      {/* Tagline */}
+      <p className="z-10 mt-[48px] mb-[80px] text-[28px] font-light text-white/30">{tagline}</p>
     </div>
   )
 }
@@ -76,6 +89,7 @@ export const StatsGridConfig: TemplateConfig = {
     { key: 'tagline', label: 'Tagline', type: 'text', default: 'Energía real, sin vueltas' },
     PRODUCT_FIELD,
     PRODUCT_SIZE_FIELD,
+    LOCK_LAYOUT_FIELD,
   ],
   component: StatsGridPreview,
 }

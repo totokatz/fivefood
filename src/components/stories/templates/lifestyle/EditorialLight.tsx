@@ -1,7 +1,8 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
+import logoBlue from '../../../../assets/logos/logo-blue.svg'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD, LOCK_LAYOUT_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -11,12 +12,11 @@ export function EditorialLightPreview({ data }: TemplateProps) {
   const accent = data.accent || 'sin culpa'
   const subtitle = data.subtitle || '100% vegano · sin TACC · proteína real'
   const productSize = Number(data.productSize) || 500
+  const lockLayout = !!data.lockLayout
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-between bg-background px-[80px] py-[120px] font-headline">
-      <p className="text-[28px] font-light tracking-[12px] text-tertiary uppercase">
-        FIVE FOODS
-      </p>
+    <div className="flex h-full w-full flex-col items-center justify-between bg-background px-[80px] py-[100px] font-headline">
+      <img src={logoBlue} alt="FiveFoods" className="w-[260px] opacity-60" />
       <div className="text-center">
         <p className="text-[72px] font-bold text-tertiary">{headline}</p>
         <p className="font-accent text-[120px] leading-none text-primary">{accent}</p>
@@ -25,15 +25,16 @@ export function EditorialLightPreview({ data }: TemplateProps) {
           {subtitle}
         </p>
       </div>
-      <div className="flex flex-col items-center gap-6">
+      {/* Product — fixed container */}
+      <div className="flex items-center justify-center" style={lockLayout ? { minHeight: '420px' } : undefined}>
         <img
           src={products[product as keyof typeof products]}
           alt={product}
           className="w-auto object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.1)]"
           style={{ height: `${productSize}px` }}
         />
-        <p className="text-[28px] text-secondary">@fivefood.ok</p>
       </div>
+      <p className="text-[28px] text-secondary">@fivefood.ok</p>
     </div>
   )
 }
@@ -48,6 +49,7 @@ export const EditorialLightConfig: TemplateConfig = {
     { key: 'subtitle', label: 'Subtítulo', type: 'text', default: '100% vegano · sin TACC · proteína real' },
     PRODUCT_FIELD,
     PRODUCT_SIZE_FIELD,
+    LOCK_LAYOUT_FIELD,
   ],
   component: EditorialLightPreview,
 }

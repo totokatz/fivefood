@@ -1,7 +1,8 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
+import logoBlue from '../../../../assets/logos/logo-blue.svg'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD, LOCK_LAYOUT_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -17,6 +18,7 @@ export function CleanListPreview({ data }: TemplateProps) {
   const stat4Val = data.stat4Val || '✓'
   const stat4Desc = data.stat4Desc || 'Sin TACC · Vegano'
   const productSize = Number(data.productSize) || 500
+  const lockLayout = !!data.lockLayout
 
   const rows = [
     { val: stat1Val, desc: stat1Desc },
@@ -26,10 +28,8 @@ export function CleanListPreview({ data }: TemplateProps) {
   ]
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-between bg-background px-[80px] py-[120px] font-headline">
-      <p className="text-[28px] font-light tracking-[12px] text-tertiary uppercase">
-        FIVE FOODS
-      </p>
+    <div className="flex h-full w-full flex-col items-center justify-between bg-background px-[80px] py-[100px] font-headline">
+      <img src={logoBlue} alt="FiveFoods" className="w-[240px] opacity-60" />
       <div className="w-full text-center">
         <p className="mb-[48px] text-[64px] font-extrabold text-tertiary">{title}</p>
         <div className="flex flex-col gap-[24px]">
@@ -47,15 +47,16 @@ export function CleanListPreview({ data }: TemplateProps) {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center gap-4">
+      {/* Product — fixed container */}
+      <div className="flex items-center justify-center" style={lockLayout ? { minHeight: '360px' } : undefined}>
         <img
           src={products[product as keyof typeof products]}
           alt={product}
           className="w-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.08)]"
           style={{ height: `${productSize}px` }}
         />
-        <p className="text-[28px] text-secondary">@fivefood.ok</p>
       </div>
+      <p className="text-[28px] text-secondary">@fivefood.ok</p>
     </div>
   )
 }
@@ -76,6 +77,7 @@ export const CleanListConfig: TemplateConfig = {
     { key: 'stat4Desc', label: 'Stat 4 desc', type: 'text', default: 'Sin TACC · Vegano' },
     PRODUCT_FIELD,
     PRODUCT_SIZE_FIELD,
+    LOCK_LAYOUT_FIELD,
   ],
   component: CleanListPreview,
 }

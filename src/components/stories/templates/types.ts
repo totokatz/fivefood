@@ -3,8 +3,8 @@ export type Product = 'chocolate' | 'queso'
 export interface TemplateField {
   key: string
   label: string
-  type: 'text' | 'number' | 'select'
-  default: string | number
+  type: 'text' | 'number' | 'select' | 'checkbox'
+  default: string | number | boolean
   options?: { value: string; label: string }[]
 }
 
@@ -19,7 +19,7 @@ export interface TemplateConfig {
 export type Category = 'promociones' | 'lifestyle' | 'nutricional' | 'lanzamientos'
 
 export interface TemplateProps {
-  data: Record<string, string | number>
+  data: Record<string, string | number | boolean>
 }
 
 export const PRODUCT_FIELD: TemplateField = {
@@ -38,6 +38,13 @@ export const PRODUCT_SIZE_FIELD: TemplateField = {
   label: 'Tamaño paquete',
   type: 'number',
   default: 500,
+}
+
+export const LOCK_LAYOUT_FIELD: TemplateField = {
+  key: 'lockLayout',
+  label: 'Fijar layout',
+  type: 'checkbox',
+  default: false,
 }
 
 export const CATEGORIES: { key: Category; label: string }[] = [

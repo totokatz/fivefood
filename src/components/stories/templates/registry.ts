@@ -7,6 +7,8 @@ import { EditorialLightConfig } from './lifestyle/EditorialLight'
 import { StatsGridConfig } from './nutrition/StatsGrid'
 import { SingleStatHeroConfig } from './nutrition/SingleStatHero'
 import { CleanListConfig } from './nutrition/CleanList'
+import { BoldAnnouncementConfig } from './launch/BoldAnnouncement'
+import { MinimalDropConfig } from './launch/MinimalDrop'
 
 export const templates: TemplateConfig[] = [
   BoldDiscountConfig,
@@ -17,4 +19,6 @@ export const templates: TemplateConfig[] = [
   StatsGridConfig,
   SingleStatHeroConfig,
   CleanListConfig,
+  BoldAnnouncementConfig,
+  MinimalDropConfig,
 ]

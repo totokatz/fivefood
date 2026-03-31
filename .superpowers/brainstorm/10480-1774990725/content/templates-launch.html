@@ -1,0 +1,76 @@
+<h2>Templates: Lanzamientos / Novedades</h2>
+<p class="subtitle">"Nuevo sabor", "Ya disponible", "Coming soon". ¿Cuáles te gustan? Podés elegir varios.</p>
+
+<div class="cards" data-multiselect>
+  <!-- Template 1: Reveal -->
+  <div class="card" data-choice="launch-reveal" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(180deg, #03045e 0%, #001d25 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 14px; font-family: system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+        <!-- Glow behind package -->
+        <div style="position: absolute; width: 100px; height: 100px; background: radial-gradient(circle, rgba(0,180,216,0.25) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        <div style="color: rgba(0,180,216,0.5); font-size: 7px; letter-spacing: 3px; position: absolute; top: 20px;">FIVE FOODS</div>
+        <!-- Coming soon -->
+        <div style="text-align: center; position: relative; z-index: 1;">
+          <div style="color: #00b4d8; font-size: 8px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px;">COMING SOON</div>
+          <div style="width: 55px; height: 75px; background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.2); border-radius: 6px; margin: 0 auto 10px; box-shadow: 0 0 30px rgba(0,180,216,0.15), 0 8px 24px rgba(0,0,0,0.3);"></div>
+          <div style="color: white; font-size: 14px; font-weight: 800; letter-spacing: 1px;">NUEVO SABOR</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 8px; margin-top: 4px;">Algo increíble se viene...</div>
+        </div>
+        <div style="position: absolute; bottom: 20px; color: rgba(255,255,255,0.3); font-size: 7px;">@fivefood.ok</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Mystery Reveal</h3>
+      <p>Fondo ultra oscuro, glow cyan detrás del paquete, "Coming Soon". Genera intriga y expectativa.</p>
+    </div>
+  </div>
+
+  <!-- Template 2: Announcement bold -->
+  <div class="card" data-choice="launch-bold" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(160deg, #00b4d8 0%, #0077b6 50%, #03045e 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 24px 14px; font-family: system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,180,216,0.3);">
+        <div style="color: rgba(255,255,255,0.7); font-size: 7px; letter-spacing: 3px;">FIVE FOODS</div>
+        <!-- Badge -->
+        <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border-radius: 20px; padding: 3px 12px; border: 1px solid rgba(255,255,255,0.3);">
+          <div style="color: white; font-size: 7px; font-weight: 700; letter-spacing: 2px;">★ NUEVO ★</div>
+        </div>
+        <!-- Package big -->
+        <div style="width: 70px; height: 95px; background: rgba(255,255,255,0.15); border-radius: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); transform: rotate(-3deg);"></div>
+        <!-- Announcement -->
+        <div style="text-align: center;">
+          <div style="color: white; font-size: 16px; font-weight: 900; line-height: 1.1;">YA<br>DISPONIBLE</div>
+          <div style="color: rgba(255,255,255,0.6); font-size: 7px; margin-top: 6px; letter-spacing: 1px;">Sabor Chocolate</div>
+        </div>
+        <!-- CTA -->
+        <div style="background: white; color: #0077b6; padding: 5px 16px; border-radius: 20px; font-size: 8px; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">COMPRÁ AHORA</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Bold Announcement</h3>
+      <p>Gradiente vibrante, badge "NUEVO", paquete grande, CTA blanco. Celebratorio y directo al punto.</p>
+    </div>
+  </div>
+
+  <!-- Template 3: Minimal drop -->
+  <div class="card" data-choice="launch-minimal" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: #f8fdff; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 14px; font-family: system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+        <div style="position: absolute; top: 20px; color: #03045e; font-size: 7px; letter-spacing: 3px;">FIVE FOODS</div>
+        <!-- Package centered with shadow -->
+        <div style="width: 65px; height: 90px; background: linear-gradient(135deg, rgba(0,180,216,0.08), rgba(0,119,182,0.08)); border-radius: 8px; box-shadow: 0 16px 40px rgba(0,53,64,0.12); margin-bottom: 14px;"></div>
+        <!-- Text -->
+        <div style="text-align: center;">
+          <div style="color: #00b4d8; font-size: 8px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;">NEW DROP</div>
+          <div style="color: #03045e; font-size: 15px; font-weight: 800; margin-top: 4px; line-height: 1.2;">Sabor<br>Chocolate</div>
+          <div style="width: 25px; height: 2px; background: #00b4d8; margin: 8px auto; border-radius: 2px;"></div>
+          <div style="color: #40484c; font-size: 7px;">Ya disponible en la web</div>
+        </div>
+        <div style="position: absolute; bottom: 20px; color: #0077b6; font-size: 7px;">@fivefood.ok</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Minimal Drop</h3>
+      <p>Fondo blanco, paquete con sombra suave, tipografía limpia. Estilo "product drop" minimalista y premium.</p>
+    </div>
+  </div>
+</div>

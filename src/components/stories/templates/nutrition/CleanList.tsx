@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -16,6 +16,7 @@ export function CleanListPreview({ data }: TemplateProps) {
   const stat3Desc = data.stat3Desc || 'Grasas trans'
   const stat4Val = data.stat4Val || '✓'
   const stat4Desc = data.stat4Desc || 'Sin TACC · Vegano'
+  const productSize = Number(data.productSize) || 500
 
   const rows = [
     { val: stat1Val, desc: stat1Desc },
@@ -50,7 +51,8 @@ export function CleanListPreview({ data }: TemplateProps) {
         <img
           src={products[product as keyof typeof products]}
           alt={product}
-          className="h-[300px] w-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.08)]"
+          className="w-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.08)]"
+          style={{ height: `${productSize}px` }}
         />
         <p className="text-[28px] text-secondary">@fivefood.ok</p>
       </div>
@@ -73,6 +75,7 @@ export const CleanListConfig: TemplateConfig = {
     { key: 'stat4Val', label: 'Stat 4 valor', type: 'text', default: '✓' },
     { key: 'stat4Desc', label: 'Stat 4 desc', type: 'text', default: 'Sin TACC · Vegano' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: CleanListPreview,
 }

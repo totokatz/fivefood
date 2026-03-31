@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -10,6 +10,7 @@ export function GlassCardPreview({ data }: TemplateProps) {
   const label = data.label || 'PROMO ESPECIAL'
   const discount = data.discount || '10% OFF'
   const subtitle = data.subtitle || 'En toda la web'
+  const productSize = Number(data.productSize) || 500
 
   return (
     <div
@@ -34,7 +35,8 @@ export function GlassCardPreview({ data }: TemplateProps) {
       <img
         src={products[product as keyof typeof products]}
         alt={product}
-        className="h-[380px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+        className="w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+        style={{ height: `${productSize}px` }}
       />
       <div className="text-center">
         <p className="text-[36px] font-bold text-tertiary">COMPRÁ AHORA →</p>
@@ -53,6 +55,7 @@ export const GlassCardConfig: TemplateConfig = {
     { key: 'discount', label: 'Descuento', type: 'text', default: '10% OFF' },
     { key: 'subtitle', label: 'Subtítulo', type: 'text', default: 'En toda la web' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: GlassCardPreview,
 }

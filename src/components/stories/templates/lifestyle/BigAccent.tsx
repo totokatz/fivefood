@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -10,6 +10,7 @@ export function BigAccentPreview({ data }: TemplateProps) {
   const topLine = data.topLine || 'Tu dosis de'
   const accent = data.accent || 'energía real'
   const bottomLine = data.bottomLine || 'sin vueltas'
+  const productSize = Number(data.productSize) || 500
 
   return (
     <div
@@ -37,8 +38,8 @@ export function BigAccentPreview({ data }: TemplateProps) {
         <img
           src={products[product as keyof typeof products]}
           alt={product}
-          className="h-[340px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)]"
-          style={{ transform: 'rotate(3deg)' }}
+          className="w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)]"
+          style={{ height: `${productSize}px`, transform: 'rotate(3deg)' }}
         />
         <p className="text-[28px] text-white/40">@fivefood.ok</p>
       </div>
@@ -55,6 +56,7 @@ export const BigAccentConfig: TemplateConfig = {
     { key: 'accent', label: 'Palabra accent', type: 'text', default: 'energía real' },
     { key: 'bottomLine', label: 'Línea inferior', type: 'text', default: 'sin vueltas' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: BigAccentPreview,
 }

@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -10,6 +10,7 @@ export function SplitDiagonalPreview({ data }: TemplateProps) {
   const discount = data.discount || '10'
   const label = data.label || 'DESCUENTO'
   const code = data.code || 'Usá el código: SNACK10'
+  const productSize = Number(data.productSize) || 500
 
   return (
     <div className="relative flex h-full w-full flex-col font-headline" style={{ background: '#03045e' }}>
@@ -27,8 +28,8 @@ export function SplitDiagonalPreview({ data }: TemplateProps) {
         <img
           src={products[product as keyof typeof products]}
           alt={product}
-          className="mt-8 h-[460px] w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
-          style={{ transform: 'rotate(3deg)' }}
+          className="mt-8 w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
+          style={{ height: `${productSize}px`, transform: 'rotate(3deg)' }}
         />
       </div>
       <div className="flex flex-1 flex-col items-center justify-center px-[80px] text-center">
@@ -56,6 +57,7 @@ export const SplitDiagonalConfig: TemplateConfig = {
     { key: 'label', label: 'Etiqueta', type: 'text', default: 'DESCUENTO' },
     { key: 'code', label: 'Código', type: 'text', default: 'Usá el código: SNACK10' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: SplitDiagonalPreview,
 }

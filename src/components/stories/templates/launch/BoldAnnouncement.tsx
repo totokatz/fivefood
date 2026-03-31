@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -11,6 +11,7 @@ export function BoldAnnouncementPreview({ data }: TemplateProps) {
   const headline = data.headline || 'YA\nDISPONIBLE'
   const productName = data.productName || 'Sabor Chocolate'
   const cta = data.cta || 'COMPRÁ AHORA'
+  const productSize = Number(data.productSize) || 500
 
   return (
     <div
@@ -29,8 +30,8 @@ export function BoldAnnouncementPreview({ data }: TemplateProps) {
       <img
         src={products[product as keyof typeof products]}
         alt={product}
-        className="h-[500px] w-auto object-contain drop-shadow-[0_32px_64px_rgba(0,0,0,0.4)]"
-        style={{ transform: 'rotate(-3deg)' }}
+        className="w-auto object-contain drop-shadow-[0_32px_64px_rgba(0,0,0,0.4)]"
+        style={{ height: `${productSize}px`, transform: 'rotate(-3deg)' }}
       />
       <div className="text-center">
         <p className="whitespace-pre-line text-[96px] font-black leading-[1.05] text-white">
@@ -55,6 +56,7 @@ export const BoldAnnouncementConfig: TemplateConfig = {
     { key: 'productName', label: 'Nombre producto', type: 'text', default: 'Sabor Chocolate' },
     { key: 'cta', label: 'CTA', type: 'text', default: 'COMPRÁ AHORA' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: BoldAnnouncementPreview,
 }

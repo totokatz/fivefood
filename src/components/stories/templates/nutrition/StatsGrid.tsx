@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -16,6 +16,7 @@ export function StatsGridPreview({ data }: TemplateProps) {
   const stat4Val = data.stat4Val || '✓'
   const stat4Label = data.stat4Label || 'Sin TACC'
   const tagline = data.tagline || 'Energía real, sin vueltas'
+  const productSize = Number(data.productSize) || 500
 
   const stats = [
     { val: stat1Val, label: stat1Label },
@@ -50,7 +51,8 @@ export function StatsGridPreview({ data }: TemplateProps) {
         <img
           src={products[product as keyof typeof products]}
           alt={product}
-          className="h-[300px] w-auto object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.3)]"
+          className="w-auto object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.3)]"
+          style={{ height: `${productSize}px` }}
         />
         <p className="text-[28px] text-white/35">{tagline}</p>
       </div>
@@ -73,6 +75,7 @@ export const StatsGridConfig: TemplateConfig = {
     { key: 'stat4Label', label: 'Stat 4 label', type: 'text', default: 'Sin TACC' },
     { key: 'tagline', label: 'Tagline', type: 'text', default: 'Energía real, sin vueltas' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: StatsGridPreview,
 }

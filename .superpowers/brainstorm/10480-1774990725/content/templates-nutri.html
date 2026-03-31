@@ -1,0 +1,101 @@
+<h2>Templates: Info Nutricional</h2>
+<p class="subtitle">Destacar proteína, fibra, sin TACC, vegano. ¿Cuáles te gustan? Podés elegir varios.</p>
+
+<div class="cards" data-multiselect>
+  <!-- Template 1: Stats bold -->
+  <div class="card" data-choice="nutri-stats" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(180deg, #003540 0%, #03045e 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 14px; font-family: system-ui; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
+        <div style="color: rgba(0,180,216,0.5); font-size: 7px; letter-spacing: 3px;">FIVE FOODS</div>
+        <!-- Stats grid -->
+        <div style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.2); border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="color: #00b4d8; font-size: 22px; font-weight: 900;">8g</div>
+            <div style="color: rgba(255,255,255,0.5); font-size: 7px; text-transform: uppercase; letter-spacing: 1px;">Proteína</div>
+          </div>
+          <div style="background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.2); border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="color: #00b4d8; font-size: 22px; font-weight: 900;">6.6g</div>
+            <div style="color: rgba(255,255,255,0.5); font-size: 7px; text-transform: uppercase; letter-spacing: 1px;">Fibra</div>
+          </div>
+          <div style="background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.2); border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="color: #00b4d8; font-size: 16px; font-weight: 900;">0g</div>
+            <div style="color: rgba(255,255,255,0.5); font-size: 7px; text-transform: uppercase; letter-spacing: 1px;">Trans Fat</div>
+          </div>
+          <div style="background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.2); border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="color: #00b4d8; font-size: 12px; font-weight: 900;">✓</div>
+            <div style="color: rgba(255,255,255,0.5); font-size: 7px; text-transform: uppercase; letter-spacing: 1px;">Sin TACC</div>
+          </div>
+        </div>
+        <!-- Package + tagline -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="width: 40px; height: 55px; background: rgba(0,180,216,0.12); border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"></div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 7px;">Energía real, sin vueltas</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Stats Grid</h3>
+      <p>Grilla 2x2 con números grandes en cyan sobre fondo oscuro. Datos que impactan. Paquete abajo.</p>
+    </div>
+  </div>
+
+  <!-- Template 2: Single stat hero -->
+  <div class="card" data-choice="nutri-hero" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(160deg, #00b4d8 0%, #0077b6 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 14px; font-family: system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,180,216,0.25);">
+        <div style="position: absolute; top: 20px; color: rgba(255,255,255,0.6); font-size: 7px; letter-spacing: 3px;">FIVE FOODS</div>
+        <!-- Big number -->
+        <div style="text-align: center;">
+          <div style="color: white; font-size: 60px; font-weight: 900; line-height: 1; text-shadow: 0 4px 24px rgba(0,0,0,0.2);">8g</div>
+          <div style="color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;">Proteína</div>
+          <div style="color: rgba(255,255,255,0.5); font-size: 8px; margin-top: 8px; line-height: 1.4;">Por porción · Proteína de arveja<br>100% vegano · Sin TACC</div>
+        </div>
+        <!-- Package bottom -->
+        <div style="position: absolute; bottom: 20px; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+          <div style="width: 40px; height: 55px; background: rgba(255,255,255,0.15); border-radius: 5px; box-shadow: 0 6px 16px rgba(0,0,0,0.15);"></div>
+          <div style="color: rgba(255,255,255,0.5); font-size: 7px;">@fivefood.ok</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Single Stat Hero</h3>
+      <p>Un solo dato nutricional gigante por story. Ideal para serie: "¿Sabías que...?" Rotás entre proteína, fibra, etc.</p>
+    </div>
+  </div>
+
+  <!-- Template 3: Clean list -->
+  <div class="card" data-choice="nutri-list" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: #f8fdff; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 14px; font-family: system-ui; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+        <div style="color: #03045e; font-size: 7px; letter-spacing: 3px;">FIVE FOODS</div>
+        <div style="width: 100%; text-align: center;">
+          <div style="color: #03045e; font-size: 13px; font-weight: 800; margin-bottom: 10px;">¿Qué tiene adentro?</div>
+          <!-- List items -->
+          <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 8px; background: rgba(0,180,216,0.08); padding: 6px 10px; border-radius: 8px;">
+              <div style="color: #00b4d8; font-size: 14px; font-weight: 900; min-width: 32px;">8g</div>
+              <div style="color: #03045e; font-size: 8px; text-align: left;">Proteína de arveja</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; background: rgba(0,180,216,0.08); padding: 6px 10px; border-radius: 8px;">
+              <div style="color: #00b4d8; font-size: 14px; font-weight: 900; min-width: 32px;">6.6g</div>
+              <div style="color: #03045e; font-size: 8px; text-align: left;">Fibra natural</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; background: rgba(0,180,216,0.08); padding: 6px 10px; border-radius: 8px;">
+              <div style="color: #00b4d8; font-size: 14px; font-weight: 900; min-width: 32px;">0g</div>
+              <div style="color: #03045e; font-size: 8px; text-align: left;">Grasas trans</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; background: rgba(0,180,216,0.08); padding: 6px 10px; border-radius: 8px;">
+              <div style="color: #00b4d8; font-size: 12px; font-weight: 900; min-width: 32px;">✓</div>
+              <div style="color: #03045e; font-size: 8px; text-align: left;">Sin TACC · Vegano</div>
+            </div>
+          </div>
+        </div>
+        <div style="color: #0077b6; font-size: 7px;">@fivefood.ok</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Clean List</h3>
+      <p>Fondo blanco, lista con stats alineados y etiquetas. Informativo, fácil de leer. Estilo editorial.</p>
+    </div>
+  </div>
+</div>

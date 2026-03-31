@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -10,6 +10,7 @@ export function MinimalDropPreview({ data }: TemplateProps) {
   const label = data.label || 'NEW DROP'
   const productName = data.productName || 'Sabor\nChocolate'
   const subtitle = data.subtitle || 'Ya disponible en la web'
+  const productSize = Number(data.productSize) || 500
 
   return (
     <div className="relative flex h-full w-full flex-col items-center justify-center bg-background px-[80px] font-headline">
@@ -19,7 +20,8 @@ export function MinimalDropPreview({ data }: TemplateProps) {
       <img
         src={products[product as keyof typeof products]}
         alt={product}
-        className="mb-[64px] h-[500px] w-auto object-contain drop-shadow-[0_48px_96px_rgba(0,53,64,0.15)]"
+        className="mb-[64px] w-auto object-contain drop-shadow-[0_48px_96px_rgba(0,53,64,0.15)]"
+        style={{ height: `${productSize}px` }}
       />
       <p className="text-[36px] font-bold tracking-[14px] text-primary uppercase">{label}</p>
       <p className="mt-4 whitespace-pre-line text-center text-[80px] font-extrabold leading-[1.15] text-tertiary">
@@ -41,6 +43,7 @@ export const MinimalDropConfig: TemplateConfig = {
     { key: 'productName', label: 'Nombre producto', type: 'text', default: 'Sabor\nChocolate' },
     { key: 'subtitle', label: 'Subtítulo', type: 'text', default: 'Ya disponible en la web' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: MinimalDropPreview,
 }

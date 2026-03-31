@@ -1,0 +1,72 @@
+<h2>Templates: Frases Lifestyle / Motivacionales</h2>
+<p class="subtitle">Mensajes tipo "Stay crunchy" con el paquete de fondo. ¿Cuáles te gustan? Podés elegir varios.</p>
+
+<div class="cards" data-multiselect>
+  <!-- Template 1: Centered quote -->
+  <div class="card" data-choice="life-centered" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(180deg, #003540 0%, #03045e 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 14px; font-family: 'Josefin Sans', system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
+        <!-- Paquete fantasma de fondo -->
+        <div style="position: absolute; width: 120px; height: 160px; background: rgba(0,180,216,0.06); border-radius: 8px; transform: rotate(-12deg); top: 50%; left: 50%; margin-top: -80px; margin-left: -60px;"></div>
+        <div style="color: rgba(0,180,216,0.5); font-size: 7px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">FIVE FOODS</div>
+        <!-- Quote -->
+        <div style="color: white; font-size: 16px; font-weight: 700; text-align: center; line-height: 1.3; position: relative; z-index: 1;">Stay crunchy,<br><span style="font-family: 'Satisfy', cursive; color: #00b4d8; font-size: 20px; font-weight: 400;">stay healthy</span></div>
+        <div style="width: 30px; height: 2px; background: #00b4d8; margin: 12px 0; border-radius: 2px;"></div>
+        <div style="color: rgba(255,255,255,0.4); font-size: 7px; letter-spacing: 1px;">@fivefood.ok</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Centered Quote</h3>
+      <p>Frase centrada con accent en Satisfy cursiva. Fondo oscuro elegante, paquete sutil de fondo. Minimalista.</p>
+    </div>
+  </div>
+
+  <!-- Template 2: Big accent -->
+  <div class="card" data-choice="life-accent" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(160deg, #00b4d8 0%, #0077b6 60%, #03045e 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 24px 14px; font-family: 'Josefin Sans', system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,180,216,0.25);">
+        <div style="color: rgba(255,255,255,0.7); font-size: 7px; letter-spacing: 3px; text-transform: uppercase;">FIVE FOODS</div>
+        <!-- Frase grande -->
+        <div style="text-align: center;">
+          <div style="color: white; font-size: 11px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase;">Tu dosis de</div>
+          <div style="font-family: 'Satisfy', cursive; color: white; font-size: 28px; line-height: 1.1; text-shadow: 0 4px 16px rgba(0,0,0,0.3);">energía real</div>
+          <div style="color: white; font-size: 11px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">sin vueltas</div>
+        </div>
+        <!-- Paquete abajo -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="width: 45px; height: 65px; background: rgba(255,255,255,0.15); border-radius: 5px; box-shadow: 0 6px 20px rgba(0,0,0,0.2); transform: rotate(3deg);"></div>
+          <div style="color: rgba(255,255,255,0.5); font-size: 7px;">@fivefood.ok</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Big Accent</h3>
+      <p>Frase con palabra clave gigante en Satisfy. Gradiente vibrante cyan→azul. Paquete pequeño abajo. Energético.</p>
+    </div>
+  </div>
+
+  <!-- Template 3: Editorial -->
+  <div class="card" data-choice="life-editorial" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: #f8fdff; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 24px 14px; font-family: 'Josefin Sans', system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+        <div style="color: #03045e; font-size: 7px; letter-spacing: 3px; text-transform: uppercase;">FIVE FOODS</div>
+        <!-- Frase -->
+        <div style="text-align: center;">
+          <div style="color: #03045e; font-size: 13px; font-weight: 700; line-height: 1.3;">Snackeá</div>
+          <div style="font-family: 'Satisfy', cursive; color: #00b4d8; font-size: 26px; line-height: 1;">sin culpa</div>
+          <div style="width: 25px; height: 2px; background: #00b4d8; margin: 8px auto; border-radius: 2px;"></div>
+          <div style="color: #40484c; font-size: 7px; line-height: 1.4; padding: 0 8px;">100% vegano · sin TACC<br>proteína real</div>
+        </div>
+        <!-- Paquete -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="width: 50px; height: 70px; background: linear-gradient(135deg, rgba(0,180,216,0.1), rgba(0,119,182,0.1)); border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);"></div>
+          <div style="color: #0077b6; font-size: 7px;">@fivefood.ok</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Editorial Light</h3>
+      <p>Fondo blanco limpio, tipografía navy + cyan accent. Estilo editorial/magazine. Elegante y legible.</p>
+    </div>
+  </div>
+</div>

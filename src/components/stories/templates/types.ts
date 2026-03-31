@@ -33,6 +33,13 @@ export const PRODUCT_FIELD: TemplateField = {
   ],
 }
 
+export const PRODUCT_SIZE_FIELD: TemplateField = {
+  key: 'productSize',
+  label: 'Tamaño paquete',
+  type: 'number',
+  default: 500,
+}
+
 export const CATEGORIES: { key: Category; label: string }[] = [
   { key: 'promociones', label: 'Promociones' },
   { key: 'lifestyle', label: 'Lifestyle' },

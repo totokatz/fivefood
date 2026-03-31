@@ -1,0 +1,79 @@
+<h2>Templates: Promociones de producto</h2>
+<p class="subtitle">¿Qué estilos de story para promos te gustan? Podés elegir varios.</p>
+
+<div class="cards" data-multiselect>
+  <!-- Template 1: Bold discount -->
+  <div class="card" data-choice="promo-bold" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(160deg, #03045e 0%, #0077b6 50%, #00b4d8 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 12px; font-family: system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,180,216,0.25);">
+        <!-- Logo top -->
+        <div style="color: rgba(255,255,255,0.6); font-size: 8px; letter-spacing: 2px; text-transform: uppercase;">FIVE FOODS</div>
+        <!-- Big discount -->
+        <div style="text-align: center;">
+          <div style="color: white; font-size: 42px; font-weight: 900; line-height: 1; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">10%</div>
+          <div style="color: #90e0ef; font-size: 14px; font-weight: 700; letter-spacing: 3px;">OFF</div>
+        </div>
+        <!-- Package mockup -->
+        <div style="width: 60px; height: 80px; background: rgba(255,255,255,0.15); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: rotate(-5deg);"></div>
+        <!-- Bottom text -->
+        <div style="text-align: center;">
+          <div style="color: white; font-size: 9px; font-weight: 700; letter-spacing: 1px;">EN TODA LA WEB</div>
+          <div style="color: rgba(255,255,255,0.5); font-size: 7px; margin-top: 2px;">fivefood.com.ar</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Bold Discount</h3>
+      <p>Descuento gigante centrado, paquete con sombra, gradiente azul profundo. Impactante y directo.</p>
+    </div>
+  </div>
+
+  <!-- Template 2: Glass card -->
+  <div class="card" data-choice="promo-glass" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: linear-gradient(180deg, #caf0f8 0%, #90e0ef 100%); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 12px; font-family: system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,180,216,0.15);">
+        <div style="color: #03045e; font-size: 8px; letter-spacing: 2px; text-transform: uppercase;">FIVE FOODS</div>
+        <!-- Glass card -->
+        <div style="background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); border-radius: 12px; padding: 12px; text-align: center; width: 85%; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.8);">
+          <div style="color: #0077b6; font-size: 8px; letter-spacing: 2px; margin-bottom: 4px;">PROMO ESPECIAL</div>
+          <div style="color: #03045e; font-size: 28px; font-weight: 900; line-height: 1;">10% OFF</div>
+          <div style="color: #0077b6; font-size: 8px; margin-top: 4px;">En toda la web</div>
+        </div>
+        <!-- Package -->
+        <div style="width: 55px; height: 75px; background: rgba(0,119,182,0.15); border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);"></div>
+        <div style="text-align: center;">
+          <div style="color: #03045e; font-size: 8px; font-weight: 600;">COMPRÁ AHORA →</div>
+          <div style="color: #0077b6; font-size: 7px; margin-top: 1px;">fivefood.com.ar</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Glass Card</h3>
+      <p>Fondo claro cyan, tarjeta glass-morphism con la promo. Estética limpia, luminosa y premium.</p>
+    </div>
+  </div>
+
+  <!-- Template 3: Split diagonal -->
+  <div class="card" data-choice="promo-split" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #0a1628; display: flex; justify-content: center;">
+      <div style="width: 180px; aspect-ratio: 9/16; background: #03045e; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 0; font-family: system-ui; overflow: hidden; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+        <!-- Top half with gradient -->
+        <div style="width: 100%; height: 55%; background: linear-gradient(135deg, #00b4d8, #0077b6); display: flex; flex-direction: column; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);">
+          <div style="color: rgba(255,255,255,0.6); font-size: 7px; letter-spacing: 2px;">FIVE FOODS</div>
+          <div style="width: 50px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 5px; margin: 6px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transform: rotate(3deg);"></div>
+        </div>
+        <!-- Bottom half -->
+        <div style="padding: 0 16px 20px; text-align: center; width: 100%;">
+          <div style="color: #00b4d8; font-size: 32px; font-weight: 900; line-height: 1;">10%</div>
+          <div style="color: #90e0ef; font-size: 11px; font-weight: 700; letter-spacing: 4px;">DESCUENTO</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 7px; margin-top: 6px;">Usá el código: SNACK10</div>
+          <div style="background: #00b4d8; color: white; padding: 4px 12px; border-radius: 20px; font-size: 7px; font-weight: 700; margin-top: 6px; display: inline-block;">SHOP NOW</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Split Diagonal</h3>
+      <p>Paquete arriba con corte diagonal, descuento abajo en fondo oscuro. Dinámico y moderno con CTA.</p>
+    </div>
+  </div>
+</div>

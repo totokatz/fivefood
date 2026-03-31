@@ -1,0 +1,72 @@
+<h2>Layout de la herramienta Story Generator</h2>
+<p class="subtitle">¿Cómo se organiza la página /stories?</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 20px; background: #0a1628;">
+      <!-- Layout A: Sidebar + Preview -->
+      <div style="display: flex; gap: 12px; height: 220px; font-family: system-ui; font-size: 11px;">
+        <!-- Sidebar -->
+        <div style="width: 35%; background: #111d33; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="color: #00b4d8; font-weight: 700; font-size: 12px;">📂 Templates</div>
+          <div style="background: #00b4d8; color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px;">🏷️ Promociones</div>
+          <div style="background: #1a2a44; color: #8899aa; padding: 4px 8px; border-radius: 4px; font-size: 10px;">💪 Lifestyle</div>
+          <div style="background: #1a2a44; color: #8899aa; padding: 4px 8px; border-radius: 4px; font-size: 10px;">🥗 Nutricional</div>
+          <div style="background: #1a2a44; color: #8899aa; padding: 4px 8px; border-radius: 4px; font-size: 10px;">🆕 Lanzamiento</div>
+          <div style="flex:1;"></div>
+          <div style="border-top: 1px solid #1a2a44; padding-top: 8px;">
+            <div style="color: #8899aa; font-size: 9px; margin-bottom: 4px;">✏️ Editar texto:</div>
+            <div style="background: #1a2a44; height: 18px; border-radius: 3px; margin-bottom: 4px;"></div>
+            <div style="background: #1a2a44; height: 18px; border-radius: 3px; margin-bottom: 4px;"></div>
+            <div style="background: #00b4d8; color: white; text-align: center; padding: 4px; border-radius: 4px; font-size: 10px;">📥 Descargar PNG</div>
+          </div>
+        </div>
+        <!-- Preview -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 55%; aspect-ratio: 9/16; background: linear-gradient(135deg, #00b4d8, #0077b6); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; box-shadow: 0 8px 32px rgba(0,180,216,0.3);">
+            <div style="color: white; font-size: 9px; font-weight: 700; text-align: center;">10% OFF</div>
+            <div style="width: 30px; height: 45px; background: rgba(255,255,255,0.2); border-radius: 3px; margin: 4px 0;"></div>
+            <div style="color: rgba(255,255,255,0.8); font-size: 7px;">EN TODA LA WEB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Sidebar izquierdo + Preview central</h3>
+      <p>Panel de control a la izquierda con categorías, inputs y botón de descarga. Preview 9:16 grande y centrado a la derecha. Layout tipo editor.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 20px; background: #0a1628;">
+      <!-- Layout B: Top tabs + Preview + Bottom controls -->
+      <div style="display: flex; flex-direction: column; gap: 8px; height: 220px; font-family: system-ui; font-size: 11px;">
+        <!-- Top tabs -->
+        <div style="display: flex; gap: 6px;">
+          <div style="background: #00b4d8; color: white; padding: 4px 10px; border-radius: 20px; font-size: 10px;">Promociones</div>
+          <div style="background: #1a2a44; color: #8899aa; padding: 4px 10px; border-radius: 20px; font-size: 10px;">Lifestyle</div>
+          <div style="background: #1a2a44; color: #8899aa; padding: 4px 10px; border-radius: 20px; font-size: 10px;">Nutricional</div>
+          <div style="background: #1a2a44; color: #8899aa; padding: 4px 10px; border-radius: 20px; font-size: 10px;">Lanzamiento</div>
+        </div>
+        <!-- Preview centered -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 28%; aspect-ratio: 9/16; background: linear-gradient(135deg, #00b4d8, #0077b6); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; box-shadow: 0 8px 32px rgba(0,180,216,0.3);">
+            <div style="color: white; font-size: 9px; font-weight: 700; text-align: center;">10% OFF</div>
+            <div style="width: 30px; height: 45px; background: rgba(255,255,255,0.2); border-radius: 3px; margin: 4px 0;"></div>
+            <div style="color: rgba(255,255,255,0.8); font-size: 7px;">EN TODA LA WEB</div>
+          </div>
+        </div>
+        <!-- Bottom controls -->
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <div style="flex: 1; background: #111d33; height: 28px; border-radius: 4px;"></div>
+          <div style="flex: 1; background: #111d33; height: 28px; border-radius: 4px;"></div>
+          <div style="background: #00b4d8; color: white; padding: 6px 14px; border-radius: 6px; font-size: 10px; white-space: nowrap;">📥 Descargar</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Tabs arriba + Preview centrado + Controles abajo</h3>
+      <p>Categorías como tabs/pills arriba. Preview 9:16 dominante en el centro. Inputs y descarga en barra inferior. Más limpio, foco en el preview.</p>
+    </div>
+  </div>
+</div>

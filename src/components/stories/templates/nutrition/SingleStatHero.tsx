@@ -1,7 +1,7 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import type { TemplateProps, TemplateConfig } from '../types'
-import { PRODUCT_FIELD } from '../types'
+import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD } from '../types'
 
 const products = { chocolate: productoChocolate, queso: productoQueso }
 
@@ -10,6 +10,7 @@ export function SingleStatHeroPreview({ data }: TemplateProps) {
   const statValue = data.statValue || '8g'
   const statLabel = data.statLabel || 'Proteína'
   const description = data.description || 'Por porción · Proteína de arveja\n100% vegano · Sin TACC'
+  const productSize = Number(data.productSize) || 500
 
   return (
     <div
@@ -35,7 +36,8 @@ export function SingleStatHeroPreview({ data }: TemplateProps) {
         <img
           src={products[product as keyof typeof products]}
           alt={product}
-          className="h-[300px] w-auto object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.2)]"
+          className="w-auto object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.2)]"
+          style={{ height: `${productSize}px` }}
         />
         <p className="text-[28px] text-white/40">@fivefood.ok</p>
       </div>
@@ -52,6 +54,7 @@ export const SingleStatHeroConfig: TemplateConfig = {
     { key: 'statLabel', label: 'Label', type: 'text', default: 'Proteína' },
     { key: 'description', label: 'Descripción', type: 'text', default: 'Por porción · Proteína de arveja\n100% vegano · Sin TACC' },
     PRODUCT_FIELD,
+    PRODUCT_SIZE_FIELD,
   ],
   component: SingleStatHeroPreview,
 }

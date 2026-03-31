@@ -2,9 +2,13 @@ import type { TemplateConfig } from './types'
 import { BoldDiscountConfig } from './promo/BoldDiscount'
 import { GlassCardConfig } from './promo/GlassCard'
 import { SplitDiagonalConfig } from './promo/SplitDiagonal'
+import { BigAccentConfig } from './lifestyle/BigAccent'
+import { EditorialLightConfig } from './lifestyle/EditorialLight'
 
 export const templates: TemplateConfig[] = [
   BoldDiscountConfig,
   GlassCardConfig,
   SplitDiagonalConfig,
+  BigAccentConfig,
+  EditorialLightConfig,
 ]

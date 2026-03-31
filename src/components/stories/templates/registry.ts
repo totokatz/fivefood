@@ -4,6 +4,9 @@ import { GlassCardConfig } from './promo/GlassCard'
 import { SplitDiagonalConfig } from './promo/SplitDiagonal'
 import { BigAccentConfig } from './lifestyle/BigAccent'
 import { EditorialLightConfig } from './lifestyle/EditorialLight'
+import { StatsGridConfig } from './nutrition/StatsGrid'
+import { SingleStatHeroConfig } from './nutrition/SingleStatHero'
+import { CleanListConfig } from './nutrition/CleanList'
 
 export const templates: TemplateConfig[] = [
   BoldDiscountConfig,
@@ -11,4 +14,7 @@ export const templates: TemplateConfig[] = [
   SplitDiagonalConfig,
   BigAccentConfig,
   EditorialLightConfig,
+  StatsGridConfig,
+  SingleStatHeroConfig,
+  CleanListConfig,
 ]

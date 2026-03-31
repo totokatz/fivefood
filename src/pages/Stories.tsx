@@ -53,18 +53,31 @@ export default function Stories() {
     if (!previewRef.current || !activeTemplate) return
     setDownloading(true)
     try {
-      const dataUrl = await toPng(previewRef.current, {
+      // Remove scale transform for full-resolution capture
+      const el = previewRef.current
+      const originalTransform = el.style.transform
+      el.style.transform = 'none'
+
+      const dataUrl = await toPng(el, {
         width: 1080,
         height: 1920,
-        pixelRatio: 2,
+        pixelRatio: 1,
         cacheBust: true,
       })
+
+      // Restore scale transform
+      el.style.transform = originalTransform
+
       const link = document.createElement('a')
       link.download = `fivefoods-story-${activeTemplate.id}-${Date.now()}.png`
       link.href = dataUrl
       link.click()
     } catch (err) {
       console.error('Export failed:', err)
+      // Restore transform on error too
+      if (previewRef.current) {
+        previewRef.current.style.transform = 'scale(0.3333)'
+      }
     } finally {
       setDownloading(false)
     }

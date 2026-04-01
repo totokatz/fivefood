@@ -100,9 +100,17 @@ export default function Stories() {
     <div className="flex h-screen flex-col bg-on-background">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-inverse-on-surface/10 px-4 py-3">
-        <h1 className="font-headline text-lg font-bold text-inverse-on-surface">
-          Story Generator
-        </h1>
+        <div className="flex items-center gap-4">
+          <h1 className="font-headline text-lg font-bold text-inverse-on-surface">
+            Story Generator
+          </h1>
+          <a
+            href="/kanvas"
+            className="rounded-full bg-primary/10 px-3 py-1 font-headline text-xs font-semibold text-primary transition-all hover:bg-primary/20"
+          >
+            Kanvas
+          </a>
+        </div>
         <a href="/" className="font-label text-xs text-primary hover:underline">
           ← Volver al sitio
         </a>

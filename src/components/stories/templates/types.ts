@@ -37,7 +37,7 @@ export const PRODUCT_SIZE_FIELD: TemplateField = {
   key: 'productSize',
   label: 'Tamaño paquete',
   type: 'number',
-  default: 500,
+  default: 1000,
 }
 
 export const LOCK_LAYOUT_FIELD: TemplateField = {
@@ -45,6 +45,13 @@ export const LOCK_LAYOUT_FIELD: TemplateField = {
   label: 'Fijar layout',
   type: 'checkbox',
   default: false,
+}
+
+export const PRODUCT_GAP_FIELD: TemplateField = {
+  key: 'productGap',
+  label: 'Separación paquetes',
+  type: 'number',
+  default: 0,
 }
 
 export const CATEGORIES: { key: Category; label: string }[] = [

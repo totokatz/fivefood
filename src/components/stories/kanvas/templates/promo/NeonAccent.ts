@@ -62,7 +62,6 @@ export const NeonAccentTemplate: KanvasTemplate = {
 
     // Bottom: mb-[80px]
     const urlPillFontSize = 26
-    const urlPillPadX = 48
     const urlPillPadY = 14
     const urlPillH = urlPillFontSize + urlPillPadY * 2
     const urlPillW = 420

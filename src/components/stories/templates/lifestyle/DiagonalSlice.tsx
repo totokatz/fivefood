@@ -1,7 +1,6 @@
 import productoChocolate from '../../../../assets/images/producto-chocolate.png'
 import productoQueso from '../../../../assets/images/producto-queso.png'
 import logo from '../../../../assets/logos/logo.svg'
-import logoBlue from '../../../../assets/logos/logo-blue.svg'
 import type { TemplateProps, TemplateConfig } from '../types'
 import { PRODUCT_FIELD, PRODUCT_SIZE_FIELD, LOCK_LAYOUT_FIELD } from '../types'
 

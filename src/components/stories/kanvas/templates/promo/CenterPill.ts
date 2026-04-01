@@ -51,7 +51,6 @@ export const CenterPillTemplate: KanvasTemplate = {
 
     // Frosted pill: mt-[140px] from top bar bottom
     const pillTopY = logoY + logoH + 140
-    const pillPadX = 120
     const pillPadY = 48
     const promoFontSize = 28
     const discountFontSize = 160

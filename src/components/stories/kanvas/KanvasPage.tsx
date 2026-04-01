@@ -1,5 +1,4 @@
 import { useState, useRef, useCallback, useMemo, useEffect } from 'react'
-import CategoryTabs from '../CategoryTabs'
 import KanvasEditor, { type KanvasEditorRef } from './KanvasEditor'
 import KanvasControls from './KanvasControls'
 import { kanvasTemplates } from './templates/registry'

@@ -38,7 +38,6 @@ export const BoldAnnouncementTemplate: KanvasTemplate = {
 
     // Glass badge pill: px-[48] py-[14] → text-[32px] + 2*14 = 60px tall
     const pillH = 60
-    const pillTextH = 32
 
     // Headline block: text-[96px] leading-[1.05], possibly 2 lines + mt-4(16) + productName text-[36px]
     const headlineLines = headline.split('\n').length

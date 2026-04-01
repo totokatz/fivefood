@@ -62,7 +62,7 @@ interface ElementProps {
   nodeRef?: (node: Konva.Node | null) => void
 }
 
-function ImageElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
+function ImageElement({ el, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
   const image = useKonvaImage(el.src)
   if (!image) return null
 
@@ -93,7 +93,7 @@ function ImageElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, nod
   )
 }
 
-function TextElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
+function TextElement({ el, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
   return (
     <Text
       ref={nodeRef as (node: Konva.Text | null) => void}
@@ -129,7 +129,7 @@ function TextElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, node
   )
 }
 
-function RectElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
+function RectElement({ el, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
   const sharedProps = {
     ref: nodeRef as (node: Konva.Rect | null) => void,
     id: el.id,
@@ -170,7 +170,7 @@ function RectElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, node
   return <Rect {...sharedProps} fill={el.fill ?? 'transparent'} />
 }
 
-function CircleElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
+function CircleElement({ el, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
   return (
     <Circle
       ref={nodeRef as (node: Konva.Circle | null) => void}
@@ -199,7 +199,7 @@ function CircleElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, no
   )
 }
 
-function LineElement({ el, isSelected, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
+function LineElement({ el, onSelect, onDragEnd, onTransformEnd, nodeRef }: ElementProps) {
   return (
     <Line
       ref={nodeRef as (node: Konva.Line | null) => void}

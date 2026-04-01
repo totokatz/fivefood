@@ -75,13 +75,10 @@ export const DuoShowcaseTemplate: KanvasTemplate = {
 
     // CTA button: pb-[100px] from bottom
     const ctaBtnFontSize = 34
-    const ctaBtnPadX = 72
     const ctaBtnPadY = 24
     const ctaBtnH = ctaBtnFontSize + ctaBtnPadY * 2
     const ctaBtnW = 520
     const ctaBtnX = (1080 - ctaBtnW) / 2
-    const ctaBtnY = 1920 - 100 - 24 - ctaBtnFontSize - ctaBtnH // space for url below
-
     // URL: mt-[24px] below button
     const urlFontSize = 24
     const urlY = 1920 - 100 - urlFontSize

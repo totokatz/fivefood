@@ -51,7 +51,6 @@ export const MinimalOfferTemplate: KanvasTemplate = {
 
     // Badge pill: right-aligned
     const badgeFontSize = 28
-    const badgePadX = 40
     const badgePadY = 14
     const badgePillH = badgeFontSize + badgePadY * 2
     const badgePillW = 160
@@ -60,7 +59,6 @@ export const MinimalOfferTemplate: KanvasTemplate = {
 
     // Products section: py-[80px], side by side centered, SQUARE
     const productsTopY = logoY + logoH + 80
-    const productsAreaH = productSize + 80  // py-[80px] top only, bottom is visual
     const productsTotalW = productSize + secondarySize + 60
     const productsStartX = (1080 - productsTotalW) / 2
     const product1X = productsStartX
